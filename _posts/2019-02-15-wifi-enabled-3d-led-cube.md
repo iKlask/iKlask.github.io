@@ -21,7 +21,7 @@ This was a project I mainly picked up to flex what I was learning with my first 
 
 I also made this project as a gift for my dad. Since Blynk also allows commands to be sent via RESTful api, my dad ended up tinkering with his gift to let his Alexa control the cube!
 # How it was Made
-Like I said above, this project uses an esp8266 and the Blynk api to have a connected LED cube. In this section, I'll go through all the concepts of what I used and how I put it all together. The ESP-01 I used is a fairly basic and cheap Wi-Fi module which required specific design decisions for my project to work. I could have used many of the other popular ESP modules out their with more features and pin outs to make it easier, but I was mainly working with what I had at the IRL lab.
+Like I said above, this project uses an esp8266 and the Blynk api to have a connected LED cube. In this section, I'll go through all the concepts of what I used and how I put it all together. **NOTE: This is not a tutorial, but a summirization of how my cube works.** The ESP-01 I used is a fairly basic and cheap Wi-Fi module which required specific design decisions for my project to work. I could have used many of the other popular ESP modules out their with more features and pin outs to make it easier, but I was mainly working with what I had at the IRL lab.
 
 {:refdef: style="text-align: center;"}
 ![]({{site.baseurl}}/images/CUBE/espPinout.png)
