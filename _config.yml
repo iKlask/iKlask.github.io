@@ -1,106 +1,123 @@
-# main text of home
-name: Ian Klask
-bio: A Man who travels the world eating noodles
+# ______ _            _                                   _
+# | ___ \ |          | |                                 | |
+# | |_/ / | __ _  ___| | _____ _   _ _ __ _ __ __ _ _ __ | |_
+# | ___ \ |/ _` |/ __| |/ / __| | | | '__| '__/ _` | '_ \| __|
+# | |_/ / | (_| | (__|   < (__| |_| | |  | | | (_| | | | | |_
+# \____/|_|\__,_|\___|_|\_\___|\__,_|_|  |_|  \__,_|_| |_|\__|
+# http://patorjk.com/software/taag/#p=testall&f=Blocks&t=Blackcurrant%0A
 
-# twitter summary info
-description: A landing page for everything Ian Klask related
+# Almost all the things in the website can be customized from here.
+# Changing title and description according to your website requirement is important.
 
-# if it's an external image, update below for true
-# better with square images
-external-image: false
-picture: assets/images/profile.jpg
 
-# If you want to include your resume, set to true
-# and specify source (external or local).
-resume: true
-resume-external: true
-resume-url: https://google.com/?q=my+resume
+title: Ian Klask
+description: Software Engineer
+url: https://iklask.github.io
 
-url: http://iKlask.github.io
-# your url: http://USERNAME.github.io
+# For more customizations, go to  _data/main.yml
 
-permalink: /:title/
 
-# To enable google analytics, supply your token below
-# analytics-google: 'UA-MYANALYTICS'
 
-# To enable piwik tracking, supply your url & site ID below
-# analytics-piwik-url: 'piwik.my-host.com'
-# analytics-piwik-id: 1
+#   ,-----.       ,--.                   ,---.  ,--.
+#  '  .--./ ,---. |  | ,---. ,--.--.    '   .-' |  ,---.  ,---. ,--,--,--. ,---.
+#  |  |    | .-. ||  || .-. ||  .--'    `.  `-. |  .-.  || .-. :|        || .-. :
+#  '  '--'\' '-' '|  |' '-' '|  |       .-'    ||  | |  |\   --.|  |  |  |\   --.
+#   `-----' `---' `--' `---' `--'       `-----' `--' `--' `----'`--`--`--' `----'
+#
+# There are 5 color schemes to choose from.
+# The one at the bottom takes precedence.
+# Remove # before 'color-scheme' to activate particular color scheme.
+# You can add your own color code as well.
 
-# if you don't want comments in your posts, leave categories empty
+#color-scheme: '#1abc9c' # Green
+# color-scheme: '#2693e6' # Blue
+#color-scheme: '#987ce6' # Purple
+# color-scheme: '#ea67a8' # Pink
+color-scheme: '#ec632b' # Orange
+
+
+# Kramdown is the default markdown processor used. It is supported by Github.
+markdown: kramdown
+
+# Mathjax setting
+enable-mathjax: yes
+
+# Charts
+enable-chartjs: yes
+
+
+# This defines how the URLs should look like.
+permalink: /blog/:title/
+
+# Pagination - Posts per page in the blog index.
+paginate: 4
+paginate_path: /blog/page:num/
+
+
+# Jekyll will read contents inside _pages only if we tell it to.
+include:
+    - _pages
+
+# Google Ananlytics Tracker.
+# Sign up with Google analytics and replce with your analytics ID.
+analytics: UA-92266803-3
+
+# Table of contents in each post
+# Change the value to 'no' if Table of Contents is not required.
+toc:  yes
+
+# Share buttons
+# Change it to `no` to remove share buttons.
+share: no
+
+
+# Comments by Disqus
+# Sign up with Disqus to get your shortcode. Leave it blank if you do not want to run diqus code on the website.
+# Leave it blank to remove disqus completely.
 disqus:
-  shortname: #mydisqus # enter this from your disqus account
-  categories: #[blog, project] # only show disqus for posts that have these categories
 
-# if you don't have any of social below, comment the line
-#facebook: myfacebook
-twitter: ianklask
-# google: mygoogle
-# instagram: myinstagram
-# pinterest: mypinterest
-linkedin: mylinkedin
-# youtube: myyoutube
-spotify: myspotify
-github: iKlask
-steam: sereonn
-# lastfm: mylastfm
-# stackoverflow: 7044681/mystackoverflow
-# quora: userquora
-# reddit: username
-# medium: medium
-# vimeo: vimeo
-# lanyrd: mylanyrd
-email: ianklask@gmail.com
 
-authors:
-    ianklask:
-        name: Ian Klask
-        bio: A Man who travels the world eating noodles
-        external-image: false
-        picture: assets/images/profile.jpg
-        twitter: ianklask
+# Define whether recent posts should be shown at the bottom of each post.
+# Change it to `no` to remove recent posts.
+recent-posts: yes
 
-# do you want a larger site? change the option below
-# options: [normal, large] | default: normal
-# normal = 560px / large = 810px
-width: large
 
-# if you don't need pagination, comment the *paginate* configs below
-# paginate: 5
-# paginate_path: "blog/:num/"
 
-# if you don't need projects, comment the *projects* configs below
-projects: true
+# Editing items below this line can break the site
+##################################################
 
-# if you don't need "about" or "blog", comment them out below
-about: true
-#blog: true
 
-# do you want to show the "read time" of the posts?
-read-time: false
+#
+#   ,-----.                                                    ,--.
+#  '  .--./ ,---. ,--,--,--. ,---. ,--.--. ,---.  ,---.  ,---. `--' ,---. ,--,--,
+#  |  |    | .-. ||        || .-. ||  .--'| .-. :(  .-' (  .-' ,--.| .-. ||      \
+#  '  '--'\' '-' '|  |  |  || '-' '|  |   \   --..-'  `).-'  `)|  |' '-' '|  ||  |
+#   `-----' `---' `--`--`--'|  |-' `--'    `----'`----' `----' `--' `---' `--''--'
+#                           `--'
+# All compression variables are declared here.
 
-# do you want to show the "tags" inside the posts?
-show-tags: true
+sass:
+ style: compressed
 
-# related posts inside a post?
-related: true
+#compress.html
+compress_html:
+  clippings: [html, head, meta, title, link, body, div, script, header, footer]
+  comments: ["<!-- ", " -->"]
+  endings: [all]
+  ignore:
+    envs: [local]
+  blanklines: false
+  profile: false
+  startings: []
 
-# Display links for next and previous posts for the specified categories
-post-advance-links: [blog]
 
-# show author block at the end of a post ?
-show-author: true
+exclude:
+    - .git
 
-# do you want some animations?
-animation: true
 
+# These plugins are supported by github by default and can be installed locally using ruby gems
 plugins:
-  - jekyll-seo-tag
-  - jekyll-gist
-  - jekyll-feed
-  - jemoji
-  - jekyll-admin
-
-jekyll-mentions:
-    base_url: https://github.com
+    - jekyll-sitemap    # Adds sitemap to the website at /sitemap.xml
+    - jekyll-feed       # Adds feed to the website at /feed.xml
+    - jekyll-paginate   # Used for sorting posts by page numbers.
+    - jekyll-seo-tag    # Adds all the important SEO meta tags by default.

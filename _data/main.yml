@@ -1,0 +1,90 @@
+image: /images/IanB&W.jpg
+name: Ian Klask
+profession: Software Engineer
+#email: ianklask@gmail.com
+menu:
+  - title: Work
+    link: /portfolio/
+  - title: Blog
+    link: /blog/
+  - title: Résumé
+    link: /assets/Resume_2019.pdf
+social:
+  twitter:
+    icon: fa-twitter
+    link: 'https://twitter.com/IanKlask'
+  linkedin:
+    icon: fa-linkedin
+    link: 'https://www.linkedin.com/in/ian-klask'
+  github:
+    icon: fa-github
+    link: 'https://github.com/iKlask'
+expertise:
+  - title: Java
+    level: 35
+    color: 'rgb(107, 203, 157)'
+  - title: Scala
+    level: 25
+    color: 'rgb(66, 125, 163)'
+  - title: Python
+    level: 30
+    color: 'rgb(254, 134, 93)'
+  - title: Swift
+    level: 40
+    color: 'rgb(255, 202, 134)'
+  - title: 'C#'
+    level: 75
+    color: 'rgb(234, 154, 53)'
+  - title: C++
+    level: 90
+    color: 'rgb(41, 107, 150)'
+  - title: C
+    level: 70
+    color: 'rgb(37, 163, 102)'
+projects:
+  - title: Nik-0
+    image: /images/nik0.jpg
+    link: /portfolio/
+  - title: Ion Engine
+    image: /images/screenshot.png
+    link: /portfolio/
+work:
+  - title: Nik-0
+    image: /images/nik0.jpg
+    description: >-
+      For my senior year capstone project at DePaul University, my team and I created a mobile
+      puzzle game titled Nik-0. Using Unity we built a puzzle game based around spreading power along
+      a connected grid. But we wanted to include beautiful envorements to make it more than just another puzzle game.
+
+      As one of two programmers on the project, I worked closley with game designers and the sound technition to provide tools
+      for workflow and implementing game logic. 
+      <p>Here are a few new things I explored on this project that I had never done before:</p>
+      <ul>
+        <li>Unity Editor Scripts for tools</li>
+        <li>Third party audio integration (WWise)</li>
+        <li>Unity Cinemachine</li>
+        <li>Version control manegment via PlasticSCM</li>
+      </ul>
+
+      You can watch a trailer we put together <a href="https://youtu.be/mN_UKFrHims">here.</a>
+      <p></p>
+    company: School Project
+    date: May 2017 - June 2018
+  - title: Ion Engine
+    image: /images/ionengine.png
+    description: >-
+      Ion Engine is a C++ game engine built during my junior year at DePaul
+      University. The goal of the course was to learn about basic engine
+      architecture through the creation of a game engine in C++. The only libraries we were given was
+      a math library, a mesh loader, and an OpenGL renderer (which I replaced with a DirectX implementation).
+      <p>The main engine features include:</p>
+      <ul>
+        <li>Teired Collision system via Sphere, AABB, and OBB bounding volumes</li>
+        <li>Resource Manager for assets</li>
+        <li>GameObjects with alarms, collision, input, update, and draw callbacks</li>
+        <li>Skybox and Terrain heightmap generation</li>
+        <li>DirectX based renderer with basic shaders for Flat Color, Texture, Phong, Sprite, and WireFrame rendering</li>
+      </ul>
+      Github project can be seen <a href="https://github.com/iKlask/Ion-Engine">here</a> with documentation <a href="https://iKlask.github.io/Ion-Engine">here.</a>
+    company: School Project
+    date: January 2017 - June 2017

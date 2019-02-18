@@ -1,49 +1,49 @@
 ---
-layout: page
+layout: default
 ---
+<!--                            
+This layout is used for posts. Changing anything here will affect all posts(not pages)
+ -->
+{% include breadcrumbs.html %}
+ 
+<div class="meta">
+  <p>
+      <small>
+          <span>
+          <i class="fa fa-calendar" aria-hidden="true"></i> {{page.date | date_to_string }}&nbsp;
+          </span>
+          <span>
+              <i class="fa fa-user" aria-hidden="true"></i> {{page.author }}&nbsp;
+          </span>
 
-{% if page.image and page.headerImage %}
-    <img class="title-image" src="{{ page.image }}" alt="{{ page.title }}">
+          <!--<span>
+             <i class="fa fa-clock-o" aria-hidden="true"></i> {% include reading-time.html %}
+          </span>-->
+      </small>
+  </p>
+</div>
+
+<div class="featured-image" style="background-image: url({{site.baseurl}}{{page.image}})"></div>
+
+<article>
+    {% if site.toc %}{% include toc.html html=content class="toc.rev.clearfix" %}{% endif %}
+    {{content}}
+</article>   
+
+<hr class="dashed">
+
+{% if site.share %}
+{% include share-buttons.html %}
 {% endif %}
 
-<h1 class="title">{{ page.title }}</h1>
-
-<span class="date">
-    <time datetime="{{ page.date | date:"%d-%m-%Y" }}">{{ page.date | date: "%A. %B %d, %Y" }}</time>
-    {% if site.read-time %} - {% include read-time.html %}{% endif %}
-</span>
-
-{% if site.show-tags %}
-    <div class="post-tags">
-        {% for tag in page.tags %}
-            <a class="item" href="{{ site.url }}/tags/#{{ tag | slugify }}">{{ tag }}</a>
-        {% endfor %}
-    </div>
+{% if page.categories %}
+{% include categories-post.html %}
 {% endif %}
 
-{{content}}
-
-{% if site.post-advance-links contains page.category %}
-    <div class="blog-navigation">
-        {% if page.previous.url %}
-            <a class="prev" href="{{ site.url }}{{ page.previous.url }}">&laquo; {{ page.previous.title }}</a>
-        {% else %}
-            <a class="prev"></a>
-        {% endif %}
-        {% if page.next.url %}
-            <a class="next" href="{{ site.url }}{{ page.next.url }}">{{ page.next.title }} &raquo;</a>
-        {% endif %}
-    </div>
+{% if site.disqus %}
+{% include disqus.html %}
 {% endif %}
 
-{% if site.related %}
-    {% include related.html %}
-{% endif %}
-
-{% if site.show-author %}
-    {% include author.html %}
-{% endif %}
-
-{% if site.disqus.categories contains page.category %}
-    {% include disqus.html %}
+{% if site.recent-posts %}
+{% include recent.html %}
 {% endif %}
