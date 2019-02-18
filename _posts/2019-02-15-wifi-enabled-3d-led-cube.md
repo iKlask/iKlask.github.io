@@ -32,7 +32,7 @@ The first design problem is the fact that for a basic 3x3x3 LED cube I'd need ar
 You can also chain these shift registers to increase the size. Since I have 8 bit registers, I can chain two together to produce a 16 bit register. In my case, this lets me expand 3 GPIO into 16 possible output pins; enough for my 12 pins! As seen below in my schematic, CL1-CL9 are for columns, and TR_1-TR_3 are for rows:
 
 {:refdef: style="text-align: center;"}
-![The 74HC595 shift registers chained in my schematic]({{site.baseurl}}/images/CUBE/shiftReg.png)
+![The 74HC595 shift registers chained in my schematic]({{site.baseurl}}/images/CUBE/ShiftReg.png)
 {: refdef}
 
 The shift registers only require 3 pins: A clock pin (SH_HP), a 'latch' pin (ST_HP), and a Serial Data pin (DS). Data is sent over the DS pin which is synced with a clock on the SH_HP pin. Each beat of the clock shifts data onto the internal register of the IC. There is a second register on the IC which is connected to each output pin. On the rising edge of the ST_HP latch, the contents of the internal register are copied to the output register and thus output their low or high result to each pin. [Last minute engineers](https://lastminuteengineers.com/74hc595-shift-register-arduino-tutorial/) has a really cool animation seen below:
