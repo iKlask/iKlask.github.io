@@ -54,16 +54,15 @@ work:
     description: >-
       For my senior year capstone project at DePaul University, my team and I created a mobile
       puzzle game titled Nik-0. Using Unity we built a puzzle game based around spreading power along
-      a connected grid. But we wanted to include beautiful envorements to make it more than just another puzzle game.
+      a connected grid. But we wanted to include beautiful environments to make it more than just another puzzle game.
 
-      As one of two programmers on the project, I worked closley with game designers and the sound technition to provide tools
-      for workflow and implementing game logic. 
+      As one of two programmers on the project, I worked closely with game designers and the sound technician to provide tools      for workflow and implementing game logic. 
       <p>Here are a few new things I explored on this project that I had never done before:</p>
       <ul>
         <li>Unity Editor Scripts for tools</li>
         <li>Third party audio integration (WWise)</li>
         <li>Unity Cinemachine</li>
-        <li>Version control manegment via PlasticSCM</li>
+        <li>Version control management via PlasticSCM</li>
       </ul>
 
       You can watch a trailer we put together <a href="https://youtu.be/mN_UKFrHims">here.</a>
@@ -79,7 +78,7 @@ work:
       a math library, a mesh loader, and an OpenGL renderer (which I replaced with a DirectX implementation).
       <p>The main engine features include:</p>
       <ul>
-        <li>Teired Collision system via Sphere, AABB, and OBB bounding volumes</li>
+        <li>Tiered Collision system via Sphere, AABB, and OBB bounding volumes</li>
         <li>Resource Manager for assets</li>
         <li>GameObjects with alarms, collision, input, update, and draw callbacks</li>
         <li>Skybox and Terrain heightmap generation</li>
