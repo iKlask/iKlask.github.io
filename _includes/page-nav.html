@@ -1,0 +1,12 @@
+<div class="post-nav">
+    <div class="post-nav-prev">
+        {% if page.next_in_category %}
+        <a href="{{page.next_in_category.url}}">&laquo;&nbsp;{{page.next_in_category.title}}</a>
+        {% endif %}
+    </div>
+    <div class="post-nav-next">
+        {% if page.previous_in_category %}
+        <a href="{{page.previous_in_category.url}}">{{page.previous_in_category.title}}&nbsp;&raquo;</a>
+        {% endif %}
+    </div>
+</div>

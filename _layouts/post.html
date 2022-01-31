@@ -5,7 +5,7 @@ layout: default
 This layout is used for posts. Changing anything here will affect all posts(not pages)
  -->
 {% include breadcrumbs.html %}
- 
+
 <div class="meta">
   <p>
       <small>
@@ -29,6 +29,8 @@ This layout is used for posts. Changing anything here will affect all posts(not 
     {% if site.toc %}{% include toc.html html=content class="toc.rev.clearfix" %}{% endif %}
     {{content}}
 </article>   
+
+{% include page-nav.html %}
 
 <hr class="dashed">
 

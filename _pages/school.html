@@ -1,0 +1,19 @@
+---
+layout: page
+title: School Projects
+permalink: /school-portfolio/
+description: These are school projects I have worked on.
+---
+
+{% for item in site.data.main.school-work %}
+<div class="row work borders" data-aos="fade-up">
+	<div class="col-md-6 work-ind" >
+		<div class="work-image" style="background-image: url({{item.image}})"></div>
+	</div>
+	<div class="col-md-6 details">
+		<h1 class="double-u">{{item.title}}</h1>
+		<p>{{item.description}}</p>
+		<p class="date"><strong>Date:</strong><span> {{item.date}}</span></p>
+	</div>
+	</div>
+{% endfor %}

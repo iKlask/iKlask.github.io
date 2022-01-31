@@ -1,14 +1,14 @@
 image: /images/IanB&W.jpg
 name: Ian Klask
-profession: Software Engineer
-#email: ianklask@gmail.com
+profession: Embedded Software Engineer
+
 menu:
-  - title: Work
+  - title: Work History
     link: /portfolio/
   - title: Blog
     link: /blog/
   - title: Résumé
-    link: /assets/Resume_2019.pdf
+    link: /resume/
 social:
   twitter:
     icon: fa-twitter
@@ -21,34 +21,45 @@ social:
     link: 'https://github.com/iKlask'
 expertise:
   - title: Java
-    level: 35
+    level: 45
     color: 'rgb(107, 203, 157)'
   - title: Scala
     level: 25
     color: 'rgb(66, 125, 163)'
-  - title: Python
-    level: 30
-    color: 'rgb(254, 134, 93)'
   - title: Swift
-    level: 40
+    level: 35
     color: 'rgb(255, 202, 134)'
+  - title: Python
+    level: 45
+    color: 'rgb(254, 134, 93)'
   - title: 'C#'
-    level: 75
+    level: 70
     color: 'rgb(234, 154, 53)'
   - title: C++
     level: 90
     color: 'rgb(41, 107, 150)'
   - title: C
-    level: 70
+    level: 85
     color: 'rgb(37, 163, 102)'
-projects:
-  - title: Nik-0
-    image: /images/nik0.jpg
-    link: /portfolio/
-  - title: Ion Engine
-    image: /images/screenshot.png
-    link: /portfolio/
 work:
+  - title: Amulet Technologies
+    image: /images/amulet-technologies-bay-area-gui-solutions-thermostat-on-wall.jpg
+    link: https://www.amulettechnologies.com
+    description: >-
+      Firmware Engineer
+      <p>
+      Worked on industrial GUI applications, developing low level code for a bare metal ARM Cortex-A5 SoC
+      </p>
+    date: 2018 - Present
+    link-desc: Click to visit Amulet's website.
+
+  - title: Depaul University
+    image: /images/graduation.jpeg
+    link: /school-portfolio/
+    description: I graduated Summa Cum Laude from DePaul University with a B.S. in Computer Science and an emphasis in Game Systems. 
+    date: 2014 - 2018
+    link-desc: Click for more info projects I worked on while in school.
+school-work:
   - title: Nik-0
     image: /images/nik0.jpg
     description: >-
@@ -67,7 +78,6 @@ work:
 
       You can watch a trailer we put together <a href="https://youtu.be/mN_UKFrHims">here.</a>
       <p></p>
-    company: School Project
     date: May 2017 - June 2018
   - title: Ion Engine
     image: /images/ionengine.png
@@ -85,5 +95,4 @@ work:
         <li>DirectX based renderer with basic shaders for Flat Color, Texture, Phong, Sprite, and WireFrame rendering</li>
       </ul>
       Github project can be seen <a href="https://github.com/iKlask/Ion-Engine">here</a> with documentation <a href="https://iKlask.github.io/Ion-Engine">here.</a>
-    company: School Project
     date: January 2017 - June 2017

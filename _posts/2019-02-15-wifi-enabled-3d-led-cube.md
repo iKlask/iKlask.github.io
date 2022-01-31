@@ -1,19 +1,19 @@
 ---
 title: Wifi Enabled LED Cube
 author: Ian Klask
-categories:
-- projects
 layout: post
 image: "/images/CUBE/loop.gif"
+tags:
+- LED
+- ESP8266
+- Arduino
 ---
 
 This was meant to be a small post to kick start a blog about my projects. The article grew to be much larger than I thought, so now its a Post-Mortem of sorts. I put this project together a little over a year ago at DePaul University's maker space: [the Idea Realization Lab (IRL)](http://irl.depaul.edu/). Most of the parts (and experience) came from the lab, so huge shout-out for DePaul and IRL's Director, [Jay Margalus](https://twitter.com/jaymargalus), for having such a neat space for students to access!
 
 Downloads for my sketch and EAGLE files [can be found on my github](https://github.com/iKlask/esp8266-LED-Cube).
 # What is it?
-{:refdef: style="text-align: center;"}
-![]({{site.baseurl}}/images/CUBE/CubeAnimations.gif)
-{:refdef}
+{% include image.html url="/images/CUBE/CubeAnimations.gif" description="" %}
 
 This is a 3x3x3 LED matrix which can play pre-programmed animations via control over the internet. It utilizes an esp8266 with the Blynk app/api, a custom PCB, and code all designed by yours truly. So ultimately: an internet controlled blinky thing! How useful!
 
@@ -23,29 +23,25 @@ I also made this project as a gift for my dad. Since Blynk allows commands to be
 # How it was Made
 Like I said above, this project uses an esp8266 and the Blynk api to have a connected LED cube. In this section, I'll go through all the concepts of what I used and how I put it all together. **NOTE: This is not a tutorial, but a summarization of concepts I used.** The ESP-01 I used is a fairly basic and cheap Wi-Fi module which required specific design decisions for my project to work. I could have used many of the other popular ESP modules out their with more features and pin outs to make it easier, but I was mainly working with what I had on hand.
 
-{:refdef: style="text-align: center;"}
-![]({{site.baseurl}}/images/CUBE/espPinout.png)
-{:refdef}
+{% include image.html url="/images/CUBE/espPinout.png" description="" %}
 ## Shift Registers
 The first design problem is the fact that for a basic 3x3x3 LED cube I'd need around 12 GPIO to control the LEDs (9 columns and 3 rows). However the ESP-01 I was using has a very basic pin out. As you can see from the Image above, on the ESP-01 you have 4 I/O pins, two of which are RX/TX pins. To solve this, I used shift registers. My 74HC595 shift registers are 8 bit registers that allow you to bitwise shift into the least significant bit of the register; so essentially a logical left shift. Each bit in the internal register has an associated output pin, so if I shift `11001001b` onto the register, then pins 0, 3, 6, and 7 can all output high.
 
 You can also chain these shift registers to increase the size. Since I have 8 bit registers, I can chain two together to produce a 16 bit register. In my case, this lets me expand 3 GPIO into 16 possible output pins; enough for my 12 pins! As seen below in my schematic, CL1-CL9 are for columns, and TR_1-TR_3 are for rows:
 
-{:refdef: style="text-align: center;"}
-![The 74HC595 shift registers chained in my schematic]({{site.baseurl}}/images/CUBE/ShiftReg.png)
-{: refdef}
+
+{% include image.html url="/images/CUBE/ShiftReg.png" description="The 74HC595 shift registers chained in my schematic" %}
+
 
 The shift registers only require 3 pins: A clock pin (SH_HP), a 'latch' pin (ST_HP), and a Serial Data pin (DS). Data is sent over the DS pin which is synced with a clock on the SH_HP pin. Each beat of the clock shifts data onto the internal register of the IC. There is a second register on the IC which is connected to each output pin. On the rising edge of the ST_HP latch, the contents of the internal register are copied to the output register and thus output their low or high result to each pin. [Last minute engineers](https://lastminuteengineers.com/74hc595-shift-register-arduino-tutorial/) has a really cool animation seen below:
 
-{:refdef: style="text-align: center;"}
-![lastminuteengineers.com 74HC595 animation]({{site.baseurl}}/images/CUBE/74HC595-Shift-Register-Working.gif)
-{:refdef}
+{% include image.html url="/images/CUBE/74HC595-Shift-Register-Working.gif" description="lastminuteengineers.com 74HC595 animation" %}
+
 ## Multiplexing
 My LED cube is a 3x3x3 matrix which makes up 27 LEDs. If we had 27 I/O lines we could individually wire each LED to an I/O and ground to control them all in one large array. But that’s not how LED cubes work! Instead we use multiplexing. The trick is that only one LED is ever on at a time. This seems pretty limiting right? But its not! LEDs already are pulsing at very high frequencies which look like solid light to our eyes. Looping through 27 LEDs at the speed of our microcontroller is still fast enough to make all LEDs appear on at the same time.
 
-{:refdef: style="text-align: center;"}
-![Columns and Rows in schematic]({{site.baseurl}}/images/CUBE/RowColOutput.png)
-{:refdef}
+{% include image.html url="/images/CUBE/RowColOutput.png" description="Columns and Rows in schematic" %}
+
 
 My implementation is slightly different than most cubes I've seen online. Each row (three total) is on a different line to ground while each column (9 total) is on a different line to power. This means each column has 3 LEDs in parallel and 12 I/O lines are needed in total. As seen in the schematic above, I have 12 through-holes for the LED matrix to be soldered to. The output lines can go directly to the 9 columns while the ground lines go to transistors which bring the row lines down to ground when activated.
 
@@ -61,9 +57,8 @@ The first issue with having a Wi-Fi controlled device is getting it to connect. 
 
 ### Blynk
 
-{:refdef: style="text-align: center;"}
-![]({{site.baseurl}}/images/CUBE/BlynkGUI.png)
-{:refdef}
+{% include image.html url="/images/CUBE/BlynkGUI.png" description="" %}
+
 
 Blynk is a really neat app and API that lets you create your own "app" for controlling microcontroller projects. Blynk hosts a server (or you can host one yourself) which the app and your device both communicate with. When the app makes a change request, it gets sent to the server which is pushed to the device. The device executes a user defined function to read the request. I'm not going to go deep into detail on how to use Blynk since there’s a ton of [documentation](https://www.blynk.cc/getting-started/) and tutorials online.
 
@@ -84,9 +79,8 @@ BLYNK_WRITE(V1)
 ```
 
 ## PCB Design
-{:refdef: style="text-align: center;"}
-![]({{site.baseurl}}/images/CUBE/CUBE_PCB.jpg)
-{:refdef}
+{% include image.html url="/images/CUBE/CUBE_PCB.jpg" description="Bottom side of populated board from OSH Park" %}
+
 I designed the PCB in Autodesk's EAGLE and manufactured the board with OSH Park (hence the pretty purple PCB). This was the first time that I had designed a PCB and manufactured it. Since I was a student, one of my goals was to keep it as **cheap** as possible. This was one of the main reasons I went with a 3x3x3 design: so I could keep part numbers down and reduce the square inch area of my PCB so it'd be even cheaper from OSH Park! 
 
 Below are pictures of the bottom and top layers of my PCB:
@@ -100,9 +94,8 @@ Bottom Layer PCB            |  Top Layer PCB
 ### Design decisions
 
 Since I was using the cheaper ESP-01 and trying to make my PCB as small as possible, I ran into a few design issues I had to solve. Here's my complete schematic:
-{:refdef: style="text-align: center;"}
-![Columns and Rows in schematic]({{site.baseurl}}/images/CUBE/ESP_LED_CUBE_SCH.png)
-{:refdef}
+
+{% include image.html url="/images/CUBE/ESP_LED_CUBE_SCH.png" description="" %}
 
 The first problem harks back to the GPIO and shift registers. I needed 3 GPIO to operate my shift registers and the ESP-01 has 4 GPIO:
 1. GPIO0
